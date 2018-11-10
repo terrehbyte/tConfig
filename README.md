@@ -12,3 +12,7 @@ home/             files to stick in the user profile directory
 windows/          Windows-specific settings to apply
 homeWindows.lnk   shortcut to userprofile directory on Windows
 ```
+
+## Externally Hosted Configurations
+
+- [VSCode](https://gist.github.com/terrehbyte/dd3e0337cde26d65c5242d5aa24c102a)
