@@ -1,0 +1,78 @@
+# This is Git's per-user configuration file.
+
+[user]
+  name = Terry Nguyen
+  email = terreh@terrehbyte.com
+
+[alias]
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  # see https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
+
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = true
+  editor = code --wait
+
+[credential]
+  helper = wincred
+
+[transfer]
+  fsckobjects = true
+  # see https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+
+[status]
+  showUntrackedFiles = all
+
+[push]
+  default = simple
+  # see https://git-scm.com/docs/git-config#git-config-pushdefault
+
+  followTags = true
+  # see https://git-scm.com/docs/git-config#git-config-pushfollowTags
+
+#      #
+# DIFF #
+#      #
+
+[diff]
+  tool = vscode
+
+[difftool]
+  prompt = false
+
+[difftool "vsdiffmerge"]
+  cmd = '"C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/vsdiffmerge.exe"' "$LOCAL" "$REMOTE" //t
+  keepbackup = false
+  trustexitcode = true
+  # Can't use %VSINSTALLDIR%. Maybe it doesn't get expanded in this context?
+  # No, it doesn't exist. It only exists from VS' Developer Console.
+
+[difftool "vscode"]
+    cmd = code --diff --wait
+    trustExitCode = false
+
+#       #
+# MERGE #
+#       #
+
+[merge]
+  tool = vscode
+  conflictstyle = diff3
+  ff = only
+  # I pretty much never mean to do a real merge, since I use a rebase workflow.
+  # Note: this global option applies to all merges, including those done during a git pull
+  # https://git-scm.com/docs/git-config#git-config-mergeff
+
+[mergetool]
+  keepBackup = false
+
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+
+[mergetool "unityyamlmerge"]
+  trustExitCode = false
+  cmd = 'C:/Program Files/Unity/2018.1.0f2/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p --fallback none "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+
+[mergetool "vsdiffmerge"]
+  trustExitCode = true
+  cmd = '"C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/vsdiffmerge.exe"' "$REMOTE" "$LOCAL" "$BASE" "$MERGED" //m
