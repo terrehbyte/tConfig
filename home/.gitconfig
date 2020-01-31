@@ -5,13 +5,15 @@
   email = terreh@terrehbyte.com
 
 [alias]
-  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   # see https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	match-upstream = reset --hard @{u}
 
 [core]
   excludesfile = ~/.gitignore
   autocrlf = true
   editor = code --wait
+	ignorecase = false
 
 [credential]
   helper = wincred
