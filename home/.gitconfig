@@ -3,6 +3,7 @@
 [user]
   name = Terry Nguyen
   email = terreh@terrehbyte.com
+	signingkey = 5FA59296F88F30623455D299F66B9044A9BAF4DA
 
 [alias]
   # see https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
@@ -78,3 +79,5 @@
 [mergetool "vsdiffmerge"]
   trustExitCode = true
   cmd = '"C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/vsdiffmerge.exe"' "$REMOTE" "$LOCAL" "$BASE" "$MERGED" //m
+[commit]
+	gpgsign = true

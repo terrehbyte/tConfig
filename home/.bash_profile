@@ -84,3 +84,5 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
+
+source ~/qmk_utils/activate_msys2.sh
